@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Sum Calculator</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        /* Animated Background */
+
+        .bg-animation {
+            background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff416c, #ff4b2b);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Glass Card */
+
+        .glass {
+            background: rgba(255, 255, 255, .18);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, .25);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, .2);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+
+        }
+
+        /* Inputs */
+
+        .input-box {
+            transition: .35s;
+        }
+
+        .input-box:focus {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(99, 102, 241, .45);
+        }
+
+        /* Button */
+
+        .btn {
+
+            background: linear-gradient(45deg, #6366f1, #8b5cf6, #ec4899);
+            background-size: 300%;
+            transition: .5s;
+
+        }
+
+        .btn:hover {
+
+            background-position: right;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(99, 102, 241, .5);
+
+        }
+
+        @keyframes fade {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .18);
+            backdrop-filter: blur(5px);
+        }
+
+        .circle:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            left: -50px;
+        }
+
+        .circle:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            bottom: -30px;
+            right: -20px;
+        }
+    </style>
+
+</head>
+
+<body class="bg-animation min-h-screen flex items-center justify-center relative">
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="glass rounded-3xl p-10 w-[380px]">
+
+        <h1 class="text-4xl font-bold text-center text-white mb-2">
+            ➕ Calculator
+        </h1>
+
+        <p class="text-center text-white/80 mb-8">
+            Add two numbers beautifully
+        </p>
+
+        <div class="space-y-5">
+
+            <div>
+
+                <label class="text-white font-semibold">
+                    First Number
+                </label>
+
+                <input type="number" id="num1" placeholder="Enter first number"
+                    class="input-box mt-2 w-full px-5 py-3 rounded-xl outline-none bg-white text-gray-700" />
+
+            </div>
+
+            <div>
+
+                <label class="text-white font-semibold">
+                    Second Number
+                </label>
+
+                <input type="number" id="num2" placeholder="Enter second number"
+                    class="input-box mt-2 w-full px-5 py-3 rounded-xl outline-none bg-white text-gray-700" />
+
+            </div>
+
+            <button onclick="dataSum()" class="btn w-full py-3 rounded-xl text-white font-semibold text-lg mt-2">
+
+                Calculate Sum
+
+            </button>
+
+            <div id="result" class="result mt-6 bg-white rounded-xl p-5 text-center">
+
+                <h2 class="text-gray-500" id="numValue">
+                    Addition of num1 ans num2 is:
+                </h2>
+
+                <p id="answer" class="text-4xl font-bold text-indigo-600 mt-2">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function dataSum() {
+
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            document.getElementById("numValue").innerHTML = `Addition of ${num1} and ${num2} is:`;
+            document.getElementById("answer").innerHTML = num1 + num2;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
