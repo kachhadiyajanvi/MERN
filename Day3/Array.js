@@ -21,5 +21,13 @@ for (let val of arr){
 arr.push(102,56)
 console.log(arr)
 arr.unshift(8,7,6)
-
+arr.pop()
+arr.shift()
+console.log(arr)
+arr.splice(2,1,20,30,40,50)
+console.log(arr)
+console.log(arr.slice(4))
+console.log(arr.slice(-4))
+console.log(arr.slice(-4,-2))
+console.log(arr.slice(-2,-4))
 
