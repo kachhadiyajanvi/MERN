@@ -24,8 +24,23 @@
 			let result = document.getElementById("result")
 			if(arg == 'foreach'){
 				arr.forEach((val,index)=>{
-					result.innerHTML = val
+					result.innerHTML += val
 				})
+			}else if(arg == 'map'){
+				let arr1 = arr.map((val,i)=>Math.sqrt(val))
+				result.innerHTML = `${arr} <br> ${arr1}`
+			}else if(arg == 'filter'){
+				let arr1 = arr.filter((val,i)=>val != 5 )
+				result.innerHTML = arr1
+			}else if(arg == 'find'){
+				let arr1 = arr.find((val,i)=>val == 3 )
+				result.innerHTML = arr1
+			}else if(arg == 'findindex'){
+				let arr1 = arr.findIndex((val,i)=>val == 5 )
+				result.innerHTML = arr1
+			}else if(arg == 'reduce'){
+				let total = arr.reduce((prev,curr)=>{return prev+curr})
+				result.innerHTML = `${arr} and total is ${total}`
 			}
 		}
 

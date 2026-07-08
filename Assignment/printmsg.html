@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Divide By 3 and 5</h2>
+    <button onclick="calculate()">Calculate</button>
+    <div id="result"></div>
+
+    <script>
+        let result = document.getElementById('result')
+        let calculate = () => {
+            for (let i = 1; i <= 100; i++) {
+                if (i % 3 == 0 && i % 5 == 0) {
+                    result.innerHTML += `<p>${i} is divisible by 3 and 5 both</p>`
+                } else if (i % 3 == 0) {
+                    result.innerHTML += `<p>${i} is divisible by 3.</p>`
+                } else if (i % 5 == 0) {
+                    result.innerHTML += `<p>${i} is divisible by 5.</p>`
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

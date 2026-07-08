@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Calculater</h2>
+    <label for="number1">Enter Number1:</label>
+    <input type="number" name="number1" id="number1">
+    <br><br>
+    <label for="number2">Enter Number2:</label>
+    <input type="number" name="number2" id="number2">
+    <br><br>
+    <label>Operation:</label>
+    <button onclick="calculate('+')">+</button>
+    <button onclick="calculate('-')">-</button>
+    <button onclick="calculate('*')">*</button>
+    <button onclick="calculate('/')">/</button>
+    <br><br>
+    <label for="result">Result: </label>
+    <span id="result"></span>
+
+
+    <script>
+        let calculate = (arg) => {
+            let number1 = Number(document.getElementById('number1').value)
+            let number2 = Number(document.getElementById('number2').value)
+            let result = document.getElementById('result')
+            if (arg == '+') {
+                result.innerHTML = `Addition of ${number1} and ${number2} is: ${number1 + number2}`
+            } else if (arg == '-') {
+                result.innerHTML = `Substraction of ${number1} and ${number2} is: ${number1 - number2}`
+            } else if (arg == '*') {
+                result.innerHTML = `Multiplication of ${number1} and ${number2} is: ${number1 * number2}`
+            } else if (arg == '/') {
+                if (number2 == 0) {
+                    result.innerHTML = `${number1} is not divided by ${number2}`
+                } else {
+                    result.innerHTML = `Division of ${number1} and ${number2} is: ${number1 / number2}`
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

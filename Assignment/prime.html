@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number in Range</title>
+</head>
+
+<body>
+    <h2>Check Prime Number in a Range</h2>
+
+    <label>Enter First Number1:</label>
+    <input type="number" id="num1"><br><br>
+
+    <label>Enter Second Number:</label>
+    <input type="number" id="num2"><br><br>
+
+    <button onclick="checkPrimeRange()">Check</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function isPrime(num) {
+            if (num < 2) {
+                return false;
+            }
+            for (let i = 2; i < num; i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        function hasPrimeInRange(num1, num2) {
+            for (let i = num1; i <= num2; i++) {
+                if (isPrime(i)) {
+                    console.log(i)
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function checkPrimeRange() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+
+            let result = document.getElementById("result");
+
+            if (hasPrimeInRange(num1, num2)) {
+                result.innerHTML = `True - There is prime number in the range`;
+            } else {
+                result.textContent = "False - There is no prime number in the range.";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>squareandcube</title>
+</head>
+<body>
+    <h2>Calculate Square OR Cube</h2>
+    <label for="number">Enter Number:</label>
+    <input type="number" id="number" required>
+    <br>
+    <br>
+    <button id="SQUARE" onclick="calculate('square')">SQUARE</button>
+    <button id="CUBE" onclick="calculate('cube')">CUBE</button>
+
+    <script>
+        let calculate=(arg)=>{
+            let number = document.getElementById('number').value;
+            if(arg == 'square'){
+                alert(`Square of ${number} is: ${number * number}`)
+            } else if(arg == 'cube'){
+                alert(`Cube of ${number} is: ${number * number * number}`)
+            }
+        }
+    </script>
+</body>
+</html>
