@@ -1,0 +1,15 @@
+nodejs
+frontend = javascript
+backend = php, java, .net 
+databse = sql
+
+2009 - Ryan Dhal => nodejs
+
+node js is 
+event driven
+code Blocking
+Asyncronous javascript
+single threaded
+cross platform runtime environment
+
+lexical scopping
