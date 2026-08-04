@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Words</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="card">
+        <h1>Reverse Words</h1>
+        <p>Enter a sentence and reverse the order of the words without changing the characters inside
+            each word.</p>
+        <div class="form-group">
+            <label for="sentenceInput">Enter Sentence</label>
+            <input type="text" id="sentenceInput" placeholder="Example: Hello World">
+        </div>
+        <button type="button" onclick="displayReversedSentence()">Reverse Words</button>
+        <div class="result-box">
+            <h2>Result</h2>
+            <p id="resultText" class="result-text">The reversed sentence will appear here.</p>
+        </div>
+    </main>
+    <script>
+        // Reverse the order of words in a sentence.
+        function reverseWords(sentence) {
+            return sentence
+                .trim()
+                .split(/\s+/)
+                .reverse()
+                .join(' ');
+        }
+        // Validate the input and display the reversed sentence.
+        function displayReversedSentence() {
+            const inputElement = document.getElementById('sentenceInput');
+            const resultElement = document.getElementById('resultText');
+            const inputValue = inputElement.value.trim();
+            if (inputValue === '') {
+                resultElement.textContent = 'Please enter a valid sentence.';
+                return;
+            }
+            resultElement.textContent = reverseWords(inputValue);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Largest Number</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="card">
+        <h1>Second Largest Number</h1>
+        <p>Enter comma-separated numbers and find the second largest unique value.</p>
+        <div class="form-group">
+            <label for="numberInput">Enter Numbers</label>
+            <input type="text" id="numberInput" placeholder="Example: 10,20,5,30,40">
+        </div>
+        <button type="button" onclick="displaySecondLargest()">Find Second Largest</button>
+        <div class="result-box">
+            <h2>Result</h2>
+            <p id="resultText" class="result-text">The result will appear here.</p>
+        </div>
+    </main>
+    <script>
+        // Convert a comma-separated string into a number array and validate each value.
+        function parseNumberArray(inputValue) {
+            return inputValue
+                .split(',')
+                .map(function (value) {
+                    return value.trim();
+                })
+                .filter(function (value) {
+                    return value !== '';
+                })
+                .map(function (value) {
+                    return Number(value);
+                });
+        }
+        // Return the second largest unique number from the array.
+        function secondLargest(arr) {
+            const uniqueNumbers = [...new Set(arr)];
+            if (uniqueNumbers.length < 2) {
+                return null;
+            }
+            uniqueNumbers.sort(function (a, b) {
+                return b - a;
+            });
+            return uniqueNumbers[1];
+        }
+        // Validate user input and display the second largest number.
+        function displaySecondLargest() {
+            const inputElement = document.getElementById('numberInput');
+            const resultElement = document.getElementById('resultText');
+            const inputValue = inputElement.value.trim();
+            if (inputValue === '') {
+                resultElement.textContent = 'Please enter comma-separated numbers.';
+                return;
+            }
+            const numberArray = parseNumberArray(inputValue);
+            if (numberArray.length === 0 || numberArray.some(function (value) {
+                return Number.isNaN(value);
+            })) {
+                resultElement.textContent = 'Please enter only valid numbers separated by commas.';
+                return;
+            }
+            const result = secondLargest(numberArray);
+            if (result === null) {
+                resultElement.textContent = 'At least two unique numbers are required.';
+                return;
+            }
+            resultElement.textContent = 'Second Largest = ' + result;
+        }
+    </script>
+</body>
+
+</html>

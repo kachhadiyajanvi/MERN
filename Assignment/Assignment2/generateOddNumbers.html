@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd Numbers Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="card">
+        <h1>Generate Odd Numbers</h1>
+        <p>Enter a number and generate the first <strong>n</strong> odd numbers using a loop.</p>
+        <div class="form-group">
+            <label for="countInput">Enter n</label>
+            <input type="text" id="countInput" placeholder="Example: 5">
+        </div>
+        <button type="button" onclick="displayOddNumbers()">Generate</button>
+        <div class="result-box">
+            <h2>Result</h2>
+            <p id="resultText" class="result-text">The generated odd numbers will appear here.</p>
+        </div>
+    </main>
+    <script>
+        // Generate the first n odd numbers using a loop.
+        function generateOddNumbers(n) {
+            const oddNumbers = [];
+            let currentNumber = 1;
+            for (let index = 0; index < n; index++) {
+                oddNumbers.push(currentNumber);
+                currentNumber += 2;
+            }
+            return oddNumbers;
+        }
+        // Validate the input and display the generated odd numbers.
+        function displayOddNumbers() {
+            const inputElement = document.getElementById('countInput');
+            const resultElement = document.getElementById('resultText');
+            const inputValue = inputElement.value.trim();
+            const count = Number(inputValue);
+            if (inputValue === '' || Number.isNaN(count) || !Number.isInteger(count) || count <= 0) {
+                resultElement.textContent = 'Please enter a valid positive whole number.';
+                return;
+            }
+            const oddNumbers = generateOddNumbers(count);
+            resultElement.textContent = oddNumbers.join(' ');
+        }
+    </script>
+</body>
+
+</html>

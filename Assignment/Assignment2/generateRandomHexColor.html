@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Hex Color</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="card">
+        <h1>Random Hex Color Generator</h1>
+        <p>Generate a new HEX color and apply it to the webpage background.</p>
+        <div class="color-preview" id="colorPreview"></div>
+        <div class="form-group">
+            <label for="hexColorOutput">Current HEX Color</label>
+            <textarea id="hexColorOutput" readonly>#FFFFFF</textarea>
+        </div>
+        <button type="button" onclick="generateColorAndApply()">Generate Color</button>
+        <div class="hint">Each click creates a new random background color.</div>
+    </main>
+    <script>
+        // Generate a random HEX color code.
+        function generateRandomHexColor() {
+            const hexCharacters = '0123456789ABCDEF';
+            let hexColor = '#';
+            for (let index = 0; index < 6; index++) {
+                const randomIndex = Math.floor(Math.random() * hexCharacters.length);
+                hexColor += hexCharacters[randomIndex];
+            }
+            return hexColor;
+        }
+        // Generate a color, show it, and change the page background.
+        function generateColorAndApply() {
+            const newColor = generateRandomHexColor();
+            const bodyElement = document.body;
+            const colorOutput = document.getElementById('hexColorOutput');
+            const previewBox = document.getElementById('colorPreview');
+            bodyElement.style.background = newColor;
+            colorOutput.value = newColor;
+            previewBox.style.background = newColor;
+        }
+        // Set the initial preview color on page load.
+        document.getElementById('colorPreview').style.background = '#FFFFFF';
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Vowels</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="card">
+        <h1>Count Vowels</h1>
+        <p>Enter a sentence and count all vowels in a case-insensitive way.</p>
+        <div class="form-group">
+            <label for="sentenceInput">Enter Text</label>
+            <input type="text" id="sentenceInput" placeholder="Example: Hello World">
+        </div>
+        <button type="button" onclick="displayVowelCount()">Count Vowels</button>
+        <div class="result-box">
+            <h2>Result</h2>
+            <p id="resultText" class="result-text">The vowel count will appear here.</p>
+        </div>
+    </main>
+    <script>
+        // Count vowels in a string in a case-insensitive way.
+        function countVowels(str) {
+            const vowels = ['a', 'e', 'i', 'o', 'u'];
+            let count = 0;
+            for (const character of str.toLowerCase()) {
+                if (vowels.includes(character)) {
+                    count++;
+                }
+            }
+            return count;
+        }
+        // Validate the input and display the vowel count.
+        function displayVowelCount() {
+            const inputElement = document.getElementById('sentenceInput');
+            const resultElement = document.getElementById('resultText');
+            const inputValue = inputElement.value.trim();
+            if (inputValue === '') {
+                resultElement.textContent = 'Please enter a valid sentence or word.';
+                return;
+            }
+            const vowelCount = countVowels(inputValue);
+            resultElement.textContent = String(vowelCount);
+        }
+    </script>
+</body>
+
+</html>
