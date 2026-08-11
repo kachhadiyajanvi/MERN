@@ -12,7 +12,7 @@ server.get("/course",(req,res)=>{
     res.send(`Welcome to Course:- ${JSON.stringify(req.query)}`)
 })
 
-server.get("/^\/institute\/(/d+)\$/",(req,res)=>{
+server.get(/^\/institute\/([0-9]+)$/,(req,res)=>{
     const id = req.params[0]
     res.send(`Welcome to institute:- ${id}`)
 })  
